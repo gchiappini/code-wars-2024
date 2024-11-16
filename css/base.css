@@ -1,0 +1,143 @@
+@font-face {
+	font-family: "Rubik";
+	src:
+		local("Rubik"),
+		url(../font/Rubik-VariableFont_wght.ttf);
+	font-weight: normal;
+}
+
+:root {
+	--cell-size: 50px;
+	--dark: #444;
+	--darker: #222;
+	--light: #aaa;
+	--lighter: #eee;
+	--start: #28a745;
+}
+
+html {
+	height: 100%;
+	font-size: 10px;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(to right top, var(--light), var(--lighter));
+	font-family: Rubik, system-ui, sans-serif;
+
+	&.dark {
+		background: linear-gradient(to right top, var(--darker), #242424);
+		color: white;
+	}
+}
+
+h1 {
+	font-size: 3rem;
+	text-align: center;
+}
+
+.game-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+input[type="text"] {
+	width: 15ch;
+	margin-inline: .5rem;
+	padding-block: .5rem;
+	border-radius: 8px;
+	font-family: Rubik, system-ui, sans-serif;
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+.user-buttons {
+	margin-block: 2rem;
+
+	* {
+		width: 90px;
+		height: 40px;
+		margin: 1rem .5rem;
+		border-radius: 8px;
+		font-family: Rubik, system-ui, sans-serif;
+		text-align: center;
+		cursor: pointer;
+	}
+}
+
+#board-size {
+	padding: .5rem;
+	background-color: white;
+	font-size: 1.6rem;
+}
+
+button {
+	background: linear-gradient(var(--start), hsl(from var(--start) h s 20));
+	border: none;
+	color: white;
+	font-size: 1.6rem;
+
+	&:hover {
+		background: linear-gradient(var(--start), hsl(from var(--start) h s 10));
+	}
+}
+
+#game-board {
+	display: grid;
+	gap: 2px;
+	min-width: calc(var(--cell-size) * 3 + 10px);
+	min-height: calc(var(--cell-size) * 3 + 10px);
+	background-color: var(--light);
+	border: 3px solid;
+	box-shadow: 1px 1px 6px;
+
+	.dark & {
+		background-color: var(--dark);
+		border-color: white;
+		box-shadow: 3px 3px 9px;
+		color: black;
+	}
+}
+
+.cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--cell-size);
+	height: var(--cell-size);
+	background-color: white;
+	border: 1px solid #333;
+	font-size: 2.4rem;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--lighter);
+	}
+
+	.dark & {
+		background-color: #333;
+		border-color: #666;
+		color: white;
+
+		&:hover {
+			background-color: var(--dark);
+		}
+	}
+}
+
+#status {
+	margin-top: 2rem;
+	margin-bottom: calc(2rem + 3px);
+	font-size: 2rem;
+}
+
+#winner {
+	display: none;
+	width: 200px;
+	height: 200px;
+	background: url(../img/winner.webp) center / cover;
+	box-shadow: 1px 1px 9px,
+				-1px -1px 9px;
+}

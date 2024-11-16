@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Tic-Tac-Toe">
+		<meta name="author" content="Gabriel Chiappini">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<title>Tic-Tac-Toe</title>
+	</head>
+	<body>
+		<div id="theme">
+			<input type="checkbox" role="switch" aria-label="Theme switcher" aria-description="Toggle between light and dark themes" id="slider" onchange="themeSwitch()">
+			<i class="fa-solid fa-sun" id="icon"></i>
+		</div>
+		<h1>Tic-Tac-Toe</h1>
+		<div class="game-container">
+			<form>
+				<input type="text" placeholder="Player X" id="player-x">
+				<input type="text" placeholder="Player O" id="player-o">
+			</form>
+			<div class="user-buttons">
+				<select id="board-size">
+					<option value="3">3 × 3</option>
+					<option value="5">5 × 5</option>
+					<option value="7">7 × 7</option>
+				</select>
+				<button id="start-game">Start</button>
+			</div>
+			<div id="game-board"></div>
+			<div id="status"></div>
+			<div id="winner"></div>
+		</div>
+		<script src="js/gameBuilder.js"></script>
+		<script src="js/themeSwitcher.js"></script>
+		<script src="https://kit.fontawesome.com/655ee7dcb1.js" crossorigin="anonymous" defer></script>
+	</body>
+</html>
